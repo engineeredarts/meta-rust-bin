@@ -7,7 +7,8 @@ inherit cross
 inherit rust-common
 
 # Required to link binaries
-DEPENDS += "gcc-cross-${TARGET_ARCH}"
+RUST_BIN_CROSS_DEPENDS ??= "gcc-cross-${TARGET_ARCH}"
+DEPENDS += "${RUST_BIN_CROSS_DEPENDS}"
 
 PN = "rust-bin-cross-${TARGET_ARCH}"
 

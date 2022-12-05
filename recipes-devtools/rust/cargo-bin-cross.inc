@@ -10,6 +10,9 @@ PN = "cargo-bin-cross-${TARGET_ARCH}"
 
 CARGO_HOST_TARGET = "${@rust_target(d, 'HOST')}"
 
+CARGO_BIN_CROSS_DEPENDS ??= "rust-bin-cross-${TARGET_ARCH}"
+DEPENDS += "${CARGO_BIN_CROSS_DEPENDS} (= ${PV})"
+
 SYSROOT_DIRS_NATIVE += "${prefix}"
 SYSROOT_DIRS_IGNORE += "\
     ${prefix}/share \
